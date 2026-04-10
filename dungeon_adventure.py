@@ -144,14 +144,10 @@ def main():
         # TODO: Calculate total score by summing the value of collected treasures
         # TODO: Print final health, items, and total value
         # TODO: End with a message like "Game Over! Thanks for playing."
-        total = sum(treasures[item] for item in player["inventory"] if item in treasures)
-        print(f"\nGame Over! Thanks for playing, {player['name']}!")
-        print(f"Final Health: {player['health']}")
-        if player["inventory"]:
-            print("Items collected: " + ", ".join(player["inventory"]))
-        else:
-            print("Items collected: none")
-        print(f"Total treasure value: {total}")
+        total = 0
+        for item in player["inventory"]:
+            if item in treasures:
+                total = total + treasures[item]
 
 
     def run_game_loop(player, treasures):
